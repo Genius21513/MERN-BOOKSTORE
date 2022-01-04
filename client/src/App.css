@@ -1,3 +1,17 @@
 .App {
   
 }
+
+.header-navbar a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.main {
+    margin-top: 5em;
+}
+
+.books a {
+    text-decoration: none;
+    color: inherit;
+}
