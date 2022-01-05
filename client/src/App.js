@@ -4,8 +4,7 @@ import * as React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { BrowserRouter as Router, Route, Link, Routes, Outlet } from 'react-router-dom';
-import { Container } from 'react-bootstrap';
+import { BrowserRouter as Router, Route, Routes, } from 'react-router-dom';
 
 import Header from './components/header';
 import Index from './components/index';
@@ -18,25 +17,31 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Header />
-        <Container className='main'>
           <Routes>
-            <Route path='/' element={<Index />} />
-              <Route path='users' element={<Users />} />
-              <Route path='news' element={<News />} />
-              <Route path='books' element={<Books />} />
-              <Route path='books/:id' element={<Book />} />
-              
-              <Route
-                path="*"
-                element={
-                  <main style={{ padding: "1rem" }}>
-                    <h1>404 Not Found.</h1>
-                  </main>
-                }
-              />
+              <Route path='/' element={<Header />} >
+                <Route index element={<Index/>} />
+
+                <Route path='users' element={<Users />} />
+                <Route path='news' element={<News />} />
+                
+                <Route path='books' element={<Books />}>
+                  <Route index element={
+                    <div>
+                      <h1>Please select one.</h1>
+                    </div>
+                  }/>
+
+                  <Route path=':id' element={<Book />} />
+                </Route>
+
+                <Route path="*" element={
+                    <div style={{ padding: "1rem" }}>
+                      <h1>404 Not Found.</h1>
+                    </div>
+                  }
+                />
+              </Route>
           </Routes>
-        </Container>
       </Router>
     </div>
   );

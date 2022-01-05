@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Container, Alert } from 'react-bootstrap';
+import { Alert } from 'react-bootstrap';
 
 export default function Index (props){
     return (
