@@ -1,14 +1,12 @@
 import * as React from 'react';
-import { NavLink } from "react-router-dom";
+import { NavLink, useSearchParams, useLocation } from "react-router-dom";
 
 export default function QLink (props) {
+    let [ searchParams, setSetSearchParams ] = useSearchParams();
+    let location = useLocation();
+    let isActive = (location.pathname === props.to)? true : false;
+    
     return (
-        <NavLink style={
-            ({isActive}) => {
-                return {
-                    color: isActive? "blue":""
-                };
-            }
-        } {...props} />
+        <NavLink style={{color: isActive? "blue":""}} {...props} />
     );
 }

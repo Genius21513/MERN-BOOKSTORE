@@ -9,12 +9,17 @@ import { getBook, saveBook, updateBook } from '../../data/books';
 export default function Book (props){
     let params = useParams();
     let book = (params.id!=='create')? getBook(parseInt(params.id, 10)) : null;
-    
-    const { register, handleSubmit } = useForm();
+
+    const { register, handleSubmit, reset, setValue } = useForm();
     const onSubmit = data => {
         book? updateBook(book.id, data) : saveBook(data);
-
+        reset();
     }
+
+    React.useEffect(()=>{
+        let keys = Object.keys(book);
+        keys.forEach(key => setValue(key, book[key]));
+    }, [book]);
 
     return (
         <React.Fragment>

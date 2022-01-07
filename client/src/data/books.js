@@ -46,5 +46,5 @@ export function updateBook (id, s_book) {
 }
 
 export function saveBook (book) {
-    books.push(book);
+    books.push(book); 
 }

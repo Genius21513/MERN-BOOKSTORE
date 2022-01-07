@@ -13,13 +13,13 @@ function Header(props) {
                     <Navbar.Toggle />
                     <Navbar.Collapse>
                         <Nav>
-                            <QLink className='nav-link' to='home'>Home</QLink>
-                            <QLink className='nav-link' to='users'>Users</QLink>
-                            <QLink className='nav-link' to='news'>News</QLink>
+                            <QLink className='nav-link' to='/home'>Home</QLink>
+                            <QLink className='nav-link' to='/users'>Users</QLink>
+                            <QLink className='nav-link' to='/news'>News</QLink>
 
                             <NavDropdown title="Books">
-                                <QLink className='nav-link' to='books'>Books</QLink>
-                                <QLink className='nav-link' to='books/create'>Create Book</QLink>
+                                <QLink className='nav-link' to='/books'>Books</QLink>
+                                <QLink className='nav-link' to='/books/create'>Create Book</QLink>
                             </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>
