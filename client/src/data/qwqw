@@ -1,4 +1,4 @@
-let books = [
+let s_books = [
     {
         name: "Santa Monica",
         id: 1995,
@@ -32,21 +32,39 @@ let books = [
     }
 ];
 
+setData(s_books);
+
+function setData(books)
+{
+    localStorage.setItem("books", JSON.stringify(books));
+}
+
+function getData()
+{
+    return JSON.parse(localStorage.getItem("books"));
+}
+
 export function getBooks ()
 {
-    return books;
+    return getData();
 }
 
 export function getBook (id) {
-    return books.find(book => book.id === id);
+    return getData().find(book => book.id === id);
 }
 
 export function updateBook (id, _book) {
+    let books = getData();
     books = books.map( book => {
         return (book.id === id) ? _book : book;
     });
+    setData(books);
+    console.log(getData());
 }
 
 export function saveBook (book) {
-    books.push(book);     
+    let books = getData();
+    books.push(book); 
+    setData(books);
+    
 }
